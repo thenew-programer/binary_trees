@@ -39,7 +39,6 @@ size_t binary_tree_height(const binary_tree_t *tree)
 }
 
 
-
 /**
  * binary_tree_is_perfect - checks if binary tree is perfect
  * Perfect means all the leaf nodes are at the same depth
@@ -51,10 +50,12 @@ size_t binary_tree_height(const binary_tree_t *tree)
 */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	if (!tree || !tree->left || !tree->right)
+	if (!tree)
 		return (FAILURE);
 	if (binary_tree_is_leaf(tree))
 		return (SUCCESS);
+	if (!tree->left || !tree->right)
+		return (FAILURE);
 
 	if (binary_tree_height(tree->left) ==
 		binary_tree_height(tree->right))
